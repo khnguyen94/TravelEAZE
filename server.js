@@ -1,10 +1,16 @@
 require("dotenv").config();
+
+// Import dependencies
 var express = require("express");
 var exphbs = require("express-handlebars");
 
+// Import database as a varaible
 var db = require("./models");
 
+// Create a variable to get a handle on express server
 var app = express();
+
+// Define the port
 var PORT = process.env.PORT || 3000;
 
 // Middleware
