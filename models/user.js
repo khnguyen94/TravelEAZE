@@ -10,5 +10,14 @@ module.exports = function(sequelize, DataTypes) {
     reservation3ID: DataTypes.INTEGER,
     reservation4ID: DataTypes.INTEGER
   });
+
+  // Associating User with Reservations
+  User.associate = function(models) {
+    // When an User is deleted, also delete any associated Reservations
+    User.hasMany(models.Reservation, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };
