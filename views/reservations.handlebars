@@ -1,0 +1,75 @@
+<div id="reservation">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{msg}}</h1>
+        <h2>Reservation Home!</h2>
+
+        <!-- Create form input for creating new reservations -->
+        <form class="clearfix mb-4" action="POST">
+
+          <form>
+            <div class="row">
+              <!-- Create input field for departure airport -->
+              <div class="col">
+                <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport">
+              </div>
+
+              <!-- Create input field for arrival airport -->
+              <div class="col">
+                <input id="arrival-airport-input" type="text" class="form-control" placeholder="Arrival Airport">
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Create input field for departure date -->
+              <div class="col">
+                <div class="form-group">
+                  <div class='input-group date' id='datetimepicker6'>
+                    <input id="departure-date-input" type='text' class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Create input field for arrival date -->
+              <div class="col">
+                <div class="form-group">
+                  <div class='input-group date' id='datetimepicker6'>
+                    <input id="arrival-date-input" type='text' class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </form>
+
+          <!-- Create form submit button -->
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+
+        </form>
+
+        <!-- Create Reservations Display-->
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Link JQuery CDN -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Link Reservations JS Logic File -->
+<script src="/js/index.js"></script>
