@@ -4,7 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     travelerID: DataTypes.STRING,
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    homeAirport: DataTypes.STRING
+    homeAirport: DataTypes.STRING,
+    reservation1ID: DataTypes.INTEGER,
+    reservation2ID: DataTypes.INTEGER,
+    reservation3ID: DataTypes.INTEGER,
+    reservation4ID: DataTypes.INTEGER
   });
   return User;
 };
