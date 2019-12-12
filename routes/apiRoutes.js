@@ -27,3 +27,7 @@ router.delete("/api/reservations/:id", function(req, res) {
     res.json(result);
   });
 });
+
+// Export router
+module.exports = router;
+
