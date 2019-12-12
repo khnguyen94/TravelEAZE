@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "frankocean",
-    "database": "exampledb",
+    "database": "travel_app_db",
     "host": "localhost",
     "dialect": "mysql"
   },
