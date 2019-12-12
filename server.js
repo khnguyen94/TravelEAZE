@@ -1,3 +1,4 @@
+// Add code to read and set any environment variables with the dotenv package
 require("dotenv").config();
 
 // Import dependencies
@@ -27,9 +28,12 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// Import routes and give the server access to them.
+var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
+
+// app.use(apiRoutes);
+app.use(htmlRoutes);
 
 var syncOptions = { force: false };
 
