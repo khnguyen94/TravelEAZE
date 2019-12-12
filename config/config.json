@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "travel_db",
+    "password": "frankocean",
+    "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"
   },
