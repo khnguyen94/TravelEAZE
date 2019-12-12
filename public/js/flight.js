@@ -5,13 +5,13 @@ var token = airplane.token;
 var flightAPI = {
   flightQuery: function() {
     var queryURL = "http://api.travelpayouts.com/v1/prices/cheap?origin=";
-    queryURL += originCity;
+    queryURL += "SEA";
     queryURL += "&destination=";
-    queryURL += destination;
+    queryURL += "LAX";
     queryURL += "&token=";
     queryURL += token;
 
-    return $.ajax({
+    $.ajax({
       url: queryURL,
       type: "GET"
     }).then(function(response) {
@@ -26,11 +26,11 @@ var flightAPI = {
 //   });
 // };
 
-flightAPI.flightQuery("SEA", "LAX");
+flightAPI.flightQuery();
 
-$("#submit").on("click", function() {
-  var originCity = $("#example-text").val().trim();
-  var destination = $("#example-description").val().trim();
-  console.log("origin, destination: " + originCity + "," + destination);
-  getFlight(originCity, destination);
-});
+// $("#submit").on("click", function() {
+//   var originCity = $("#example-text").val().trim();
+//   var destination = $("#example-description").val().trim();
+//   console.log("origin, destination: " + originCity + "," + destination);
+//   getFlight(originCity, destination);
+// });
