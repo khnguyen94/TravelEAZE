@@ -3,56 +3,61 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h2>Reservation Home!</h2>
 
-        <!-- Create form input for creating new reservations -->
-        <form class="clearfix mb-4" action="POST">
+        <!-- Flight Reservations Jumbotron -->
+        <div class="jumbotron">
+          <h2>Find flights for your next trip</h2>
 
-          <form>
-            <div class="row">
-              <!-- Create input field for departure airport -->
-              <div class="col">
-                <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport">
-              </div>
+          <!-- Create form input for creating new reservations -->
+          <form class="clearfix mb-4" action="POST">
 
-              <!-- Create input field for arrival airport -->
-              <div class="col">
-                <input id="destination-airport-input" type="text" class="form-control" placeholder="Destination Airport">
-              </div>
-            </div>
+            <form>
+              <div class="row">
+                <!-- Create input field for departure airport -->
+                <div class="col">
+                  <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport">
+                </div>
 
-            <div class="row">
-              <!-- Create input field for departure date -->
-              <div class="col">
-                <div class="form-group">
-                  <div class='input-group date'>
-                    <input id="departure-date-input" type='text' class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                  </div>
+                <!-- Create input field for arrival airport -->
+                <div class="col">
+                  <input id="destination-airport-input" type="text" class="form-control"
+                    placeholder="Destination Airport">
                 </div>
               </div>
 
-              <!-- Create input field for arrival date -->
-              <div class="col">
-                <div class="form-group">
-                  <div class='input-group date'>
-                    <input id="return-date-input" type='text' class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+              <div class="row">
+                <!-- Create input field for departure date -->
+                <div class="col">
+                  <div class="form-group">
+                    <div class='input-group date'>
+                      <input id="departure-date-input" type='text' class="form-control" />
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
                   </div>
                 </div>
+
+                <!-- Create input field for arrival date -->
+                <div class="col">
+                  <div class="form-group">
+                    <div class='input-group date'>
+                      <input id="return-date-input" type='text' class="form-control" />
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              
-            </div>
+            </form>
+
+            <!-- Create form submit button -->
+            <button id="reservation-submit" class="btn btn-primary float-right">Submit</button>
+
           </form>
-
-          <!-- Create form submit button -->
-          <button id="reservation-submit" class="btn btn-primary float-right">Submit</button>
-
-        </form>
+        </div>
 
         <!-- Create Reservations Display-->
         <h3>Examples:</h3>
