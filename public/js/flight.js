@@ -23,6 +23,7 @@ var getFlight = function() {
   });
 };
 
+/*
 $("#reservation-submit").on("click", function(e) {
   e.preventDefault();
   console.log("submit clicked!");
@@ -31,3 +32,4 @@ $("#reservation-submit").on("click", function(e) {
   console.log("origin, destination: " + originCity + "," + destination);
   getFlight(originCity, destination);
 });
+*/
