@@ -1,0 +1,43 @@
+<div class="container">
+  <div id="flight-jumbotron" class="jumbotron">
+    <h2>Start Learning the Language</h2>
+
+    <!-- Create form input for creating new reservations -->
+    <form class="clearfix mb-4" action="POST">
+      <form>
+        <div class="row">
+          <!-- Create input field for departure airport -->
+          <div class="col">
+            <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport" />
+          </div>
+
+          <!-- Create input field for arrival airport -->
+          <div class="col">
+            <input id="destination-airport-input" type="text" class="form-control" placeholder="Destination Airport" />
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <!-- Create input field for departure date -->
+          <div class="col">
+            <h6>Departure Date</h6>
+            <input type="text" id="departure-date" class="form-control" />
+          </div>
+
+          <!-- Create input field for arrival date -->
+          <div class="col">
+            <h6>Return Date</h6>
+            <input type="text" id="return-date" class="form-control" />
+          </div>
+        </div>
+      </form>
+
+      <!-- Create form submit button -->
+      <button id="reservation-submit" class="btn btn-primary float-right">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

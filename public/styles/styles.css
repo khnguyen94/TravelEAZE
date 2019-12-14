@@ -97,8 +97,9 @@
   width: 100%; }
 
 footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */
