@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Travel Project</title>
+
   <!-- Link Bootstrap CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,41 +17,95 @@
       <script src="/public/js/flight.js"></script>
 
   <!-- Link Custom CSS -->
-  <link rel="stylesheet" href="/public/styles/styles.css">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="jquery.datetimepicker.min.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 </head>
 
 <body>
   <!-- Header -->
   <nav class="navbar navbar-dark bg-dark">
-    <nav class="navbar navbar-light bg-light">
-      <!-- Logo Img -->
-      <a class="navbar-brand" href="#">
-        <img id="logo-image" src="/public/images/plane_logo.png" width="30" height="30" class="d-inline-block align-top"
-          alt="">
-        Travel App
-      </a>
+    <!-- Logo Img -->
+    <a id="logo-container" class="navbar-brand" href="#">
+      <img id="logo-image" src="./images/plane logo.jpg" width="30" height="30" class="d-inline-block align-top"
+        alt="" />
+      Travel App
+    </a>
 
-      <!-- Header -->Ï
-      <div class="collapse navbar-collapse" id="navbar-items">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Booking</a>
-          <a class="nav-item nav-link" href="#">Your Itinerary</a>
-          <a class="nav-item nav-link" href="#">Translator</a>
+    <!-- Links -->
+    <div id="nav-links-container">
+      <div id="nav navbar-nav" class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">Home</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">
+            Reservations
+          </button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">Translator</button>
         </div>
       </div>
-    </nav>
+    </div>
+
+    <!-- User Login Display -->
+    <div id="nav-login-disp">
+      <span>Hello --User--</span>
+    </div>
   </nav>
+
+  <br />
 
   <!-- Main Body Content -->
   {{{ body }}}
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <span>Footer content</span>
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Your Website</small>
     </div>
   </footer>
+
+  <!-- Link JQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- Link Datepicker JS -->
+  <script src="jquery.datetimepicker.full.min.js"></script>
+
+  <!-- Custom Script for Datepicker -->
+  <script>
+    $("#departure-date").datetimepicker({
+      timepicker: false,
+      datepicker: true,
+      format: "Y-m-d", // format date
+      value: "2019-1-1", // default date
+      weeks: true
+    });
+
+    $("#return-date").datetimepicker({
+      timepicker: false,
+      datepicker: true,
+      format: "Y-m-d", // format date
+      value: "2019-1-2", // default date
+      weeks: true
+    });
+  </script>
+
+  <!-- Custom Script for Slideshow -->
+  <script src="./slideshow.js"></script>
+</body>
+
+</html>
 </body>
 
 </html>

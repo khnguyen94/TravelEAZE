@@ -1,75 +1,49 @@
-<div id="reservation">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Reservation Home!</h2>
+<div class="container">
+  <div id="flight-jumbotron" class="jumbotron">
+    <h2>Find flights</h2>
 
-        <!-- Create form input for creating new reservations -->
-        <form class="clearfix mb-4" action="POST">
+    <!-- Create form input for creating new reservations -->
+    <form class="clearfix mb-4" action="POST">
+      <form>
+        <div class="row">
+          <!-- Create input field for departure airport -->
+          <div class="col">
+            <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport" />
+          </div>
 
-          <form>
-            <div class="row">
-              <!-- Create input field for departure airport -->
-              <div class="col">
-                <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport">
-              </div>
+          <!-- Create input field for arrival airport -->
+          <div class="col">
+            <input id="destination-airport-input" type="text" class="form-control" placeholder="Destination Airport" />
+          </div>
+        </div>
 
-              <!-- Create input field for arrival airport -->
-              <div class="col">
-                <input id="destination-airport-input" type="text" class="form-control" placeholder="Destination Airport">
-              </div>
-            </div>
+        <br />
 
-            <div class="row">
-              <!-- Create input field for departure date -->
-              <div class="col">
-                <div class="form-group">
-                  <div class='input-group date'>
-                    <input id="departure-date-input" type='text' class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
+        <div class="row">
+          <!-- Create input field for departure date -->
+          <div class="col">
+            <h6>Departure Date</h6>
+            <input type="text" id="departure-date" class="form-control" />
+          </div>
 
-              <!-- Create input field for arrival date -->
-              <div class="col">
-                <div class="form-group">
-                  <div class='input-group date'>
-                    <input id="return-date-input" type='text' class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </form>
+          <!-- Create input field for arrival date -->
+          <div class="col">
+            <h6>Return Date</h6>
+            <input type="text" id="return-date" class="form-control" />
+          </div>
+        </div>
+      </form>
 
-          <!-- Create form submit button -->
-          <button id="reservation-submit" class="btn btn-primary float-right">Submit</button>
-
-        </form>
-
-        <!-- Create Reservations Display-->
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
+      <!-- Create form submit button -->
+      <button id="reservation-submit" class="btn btn-primary float-right">
+        Submit
+      </button>
+    </form>
   </div>
 </div>
 
-<!-- Link JQuery CDN -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<br />
+
 <!-- Link Reservations JS Logic File -->
 <script src="../public/js/reservations.js"></script>
+
