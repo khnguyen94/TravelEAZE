@@ -96,10 +96,30 @@
 .reservation-img {
   width: 100%; }
 
+
+/* Translation Page CSS */
+#submitButtonCol {
+  align-content: center;
+}
+
+#submitTranslationButton {
+  background: #80b3ff;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50%;
+  margin-top: 50%;
+}
+
+
 footer {
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
+  color: white;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
