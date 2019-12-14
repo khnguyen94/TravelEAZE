@@ -17,6 +17,7 @@ module.exports = function(app) {
     console.log(req.body);
     db.Reservation.create({
       startDate: req.body.startDate,
+      endDate: req.body.endDate,
       departureLoc: req.body.departureLoc,
       arrivalLoc: req.body.arrivalLoc
     }).then(function(dbReservation) {
