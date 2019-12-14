@@ -14,10 +14,10 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <!-- Link JS Logic to Handle HTML Actions -->
   {{!-- <script src="/public/js/index.js"></script> --}}
-      <script src="/public/js/flight.js"></script>
+  <script src="/public/js/flight.js"></script>
 
   <!-- Link Custom CSS -->
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="../../public/styles/styles.css" />
   <link rel="stylesheet" href="jquery.datetimepicker.min.css" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 </head>
@@ -26,7 +26,7 @@
   <!-- Header -->
   <nav class="navbar navbar-dark bg-dark">
     <!-- Logo Img -->
-    <a id="logo-container" class="navbar-brand" href="#">
+    <a id="logo-container" class="navbar-brand" href="/">
       <img id="logo-image" src="./images/plane logo.jpg" width="30" height="30" class="d-inline-block align-top"
         alt="" />
       Travel App
@@ -36,15 +36,25 @@
     <div id="nav-links-container">
       <div id="nav navbar-nav" class="btn-group" role="group" aria-label="...">
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">Home</button>
-        </div>
-        <div class="btn-group" role="group">
           <button type="button" class="btn btn-default">
-            Reservations
+            <a href="/">
+              Home
+            </a>
           </button>
         </div>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">Translator</button>
+          <button type="button" class="btn btn-default">
+            <a href="/flight">
+              Reservations
+            </a>
+          </button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">
+            <a href="/translate">
+              Translator
+            </a>
+          </button>
         </div>
       </div>
     </div>
