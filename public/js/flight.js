@@ -20,17 +20,15 @@ var flightAPI = {
   }
 };
 
-// var getFlight = function() {
-//   flightAPI.flightQuery().then(function(response) {
-//     console.log("response" + response);
-//   });
-// };
+var getFlight = function() {
+  flightAPI.flightQuery().then(function(response) {
+    console.log("response" + response);
+  });
+};
 
-flightAPI.flightQuery();
-
-// $("#submit").on("click", function() {
-//   var originCity = $("#example-text").val().trim();
-//   var destination = $("#example-description").val().trim();
-//   console.log("origin, destination: " + originCity + "," + destination);
-//   getFlight(originCity, destination);
-// });
+$("#reservation-submit").on("click", function() {
+  var originCity = $("#departure-airport-input").val().trim();
+  var destination = $("#destination-airport-input").val().trim();
+  console.log("origin, destination: " + originCity + "," + destination);
+  getFlight(originCity, destination);
+});
