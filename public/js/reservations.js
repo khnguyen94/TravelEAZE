@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
   function submitPost(Post) {
     $.post("/api/reservations/", Post, function() {
-      window.location.href = "/reservations";
+      window.location.href = "/flight";
     });
   }
 });
