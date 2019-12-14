@@ -25,6 +25,7 @@ var flightAPI = {
 //   });
 // };
 
+/*
 $("#reservation-submit").on("click", function(e) {
   e.preventDefault();
   console.log("submit clicked!");
@@ -33,3 +34,4 @@ $("#reservation-submit").on("click", function(e) {
   console.log("origin, destination: " + originCity + "," + destination);
   flightAPI.flightQuery(originCity, destination);
 });
+*/

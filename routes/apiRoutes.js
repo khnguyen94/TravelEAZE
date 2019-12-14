@@ -14,8 +14,14 @@ module.exports = function(app) {
 
   // Create a new reservations
   app.post("/api/reservations", function(req, res) {
-    db.Reservation.create(req.body).then(function(result) {
-      res.json(result);
+    console.log(req.body);
+    db.Reservation.create({
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      departureLoc: req.body.departureLoc,
+      arrivalLoc: req.body.arrivalLoc
+    }).then(function(dbReservation) {
+      res.json(dbReservation);
     });
   });
 
@@ -28,4 +34,3 @@ module.exports = function(app) {
     });
   });
 };
-
