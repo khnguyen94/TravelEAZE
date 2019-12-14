@@ -1,12 +1,8 @@
 #nav-links {
   text-align: center; }
 
-button {
+.btn {
   color: white; }
-
-.nav-link {
-  color: white;
-}
 
 #nav-login-disp {
   color: white; }
@@ -100,7 +96,7 @@ button {
 .reservation-img {
   width: 100%; }
 
-#sticky-footer {
+footer {
   position: fixed;
   bottom: 0;
   width: 100%; }

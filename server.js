@@ -28,12 +28,9 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var apiRoutes = require("./routes/apiRoutes");
-var htmlRoutes = require("./routes/htmlRoutes");
-
-// app.use(apiRoutes);
-app.use(htmlRoutes);
+// Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
