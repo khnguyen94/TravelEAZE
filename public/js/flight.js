@@ -13,3 +13,4 @@ $("#reservation-submit").on("click", function(e) {
     console.log("origin, destination: " + originCity + "," + destination);
   });
 });
+*/
