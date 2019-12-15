@@ -1,7 +1,6 @@
 // Import Express dependencies
 
 // Requiring our models
-
 var db = require("../models");
 
 module.exports = function(app) {
@@ -27,9 +26,11 @@ module.exports = function(app) {
 
   // Delete an reservations by id
   app.delete("/api/reservations/:id", function(req, res) {
-    db.Reservation.destroy({ where: { id: req.params.id } }).then(function(
-      result
-    ) {
+    db.Reservation.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
       res.json(result);
     });
   });
