@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 var db = require("../models");
 var axios = require("axios");
 var airplane = require("../config/airplane.js");
@@ -32,6 +33,7 @@ module.exports = function(app) {
   });
 
   // Load index page
+  // module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
