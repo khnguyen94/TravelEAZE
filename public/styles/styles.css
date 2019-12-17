@@ -100,11 +100,18 @@
 .reservation-img {
   width: 100%; }
 
-<<<<<<< HEAD
-#sticky-footer {
-=======
 
 /* Translation Page CSS */
+.buttonDiv {
+  display: inline-block;
+  display: -moz-inline-box;
+  display: inline; 
+  zoom: 1; 
+  width: 33%;
+  text-align: center;
+  padding: 10px;
+}
+
 #submitButtonCol {
   align-content: center;
 }
@@ -121,7 +128,6 @@
 
 
 footer {
->>>>>>> bed41d5b9e4de0fefcb3cbd9512256d50ae19d0b
   position: fixed;
   left: 0;
   bottom: 0;
