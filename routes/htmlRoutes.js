@@ -11,11 +11,18 @@ module.exports = function(app) {
     );
     var originCity = req.body.originCity;
     var destination = req.body.destination;
+    var departureDate = req.body.departDate;
+    var returnDate = req.body.returnDate;
+
     var queryURL =
       "http://api.travelpayouts.com/v1/prices/cheap?currency=USD&origin=";
     queryURL += originCity;
     queryURL += "&destination=";
     queryURL += destination;
+    queryURL += "&depart_date=";
+    queryURL += departureDate;
+    queryURL += "&return_date=";
+    queryURL += returnDate;
     queryURL += "&token=";
     queryURL += token;
 
@@ -38,7 +45,7 @@ module.exports = function(app) {
   });
 
   app.get("/translate", function(req, res) {
-    res.render("translate");
+    res.render("translations");
   });
 
   // Render 404 page for any unmatched routes
