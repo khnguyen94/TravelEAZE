@@ -25,10 +25,11 @@ module.exports = function(app) {
     queryURL += returnDate;
     queryURL += "&token=";
     queryURL += token;
+    console.log(queryURL);
 
     axios.get(queryURL).then(function(response) {
-      console.log("result: " + response.data.LAX);
-      res.json(response.data);
+      console.log("result: " + JSON.stringify(response.data.data.LAX));
+      res.json(response.data.data.LAX);
     });
   });
 

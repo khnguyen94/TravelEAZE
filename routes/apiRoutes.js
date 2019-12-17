@@ -11,6 +11,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/city/:arrivalCity", function(req, res) {
+    db.Airport.findAll({
+      where: { airportAccronym: req.params.arrivalCity }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
   // Create a new reservations
   app.post("/api/reservations", function(req, res) {
     console.log(req.body);
