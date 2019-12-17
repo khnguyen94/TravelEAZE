@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Get references to page elements
 var $userLoginEmail = $("#login-email-input");
 var $userLoginPassword = $("#login-password-input");
