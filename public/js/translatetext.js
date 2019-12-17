@@ -1,8 +1,10 @@
 var keys = require("./keys.js");
 var apiKey = keys.rapidapi;
-var sourcelang = $("source").val();
-var transtext = $("text").val();
-var targetlang = $("lang").val();
+
+$(document).ready(function() {
+var sourcelang = $("#sourceLanguage").val().trim();
+  var transtext = $("#needTranslation").val().trim();
+  var targetlang = $("#targetLanguage").val().trim();
 
 var transfunc = function() {
   var translateapi = {
@@ -27,4 +29,5 @@ var transfunc = function() {
     return response;
   });
 };
-transfunc();
+  $("#submitTranslationButton").on("click",transfunc());
+});
