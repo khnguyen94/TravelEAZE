@@ -5,33 +5,33 @@
     <!-- Create form input for creating new reservations -->
 
     <form class="clearfix mb-4" id="new-reservation" action="POST">
-        <div class="row">
-          <!-- Create input field for departure airport -->
-          <div class="col">
-            <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport" />
-          </div>
-
-          <!-- Create input field for arrival airport -->
-          <div class="col">
-            <input id="destination-airport-input" type="text" class="form-control" placeholder="Destination Airport" />
-          </div>
+      <div class="row">
+        <!-- Create input field for departure airport -->
+        <div class="col">
+          <input id="departure-airport-input" type="text" class="form-control" placeholder="Departure Airport" />
         </div>
 
-        <br />
-
-        <div class="row">
-          <!-- Create input field for departure date -->
-          <div class="col">
-            <h6>Departure Date</h6>
-            <input type="text" id="departure-date" class="form-control" />
-          </div>
-
-          <!-- Create input field for arrival date -->
-          <div class="col">
-            <h6>Return Date</h6>
-            <input type="text" id="return-date" class="form-control" />
-          </div>
+        <!-- Create input field for arrival airport -->
+        <div class="col">
+          <input id="destination-airport-input" type="text" class="form-control" placeholder="Destination Airport" />
         </div>
+      </div>
+
+      <br />
+
+      <div class="row">
+        <!-- Create input field for departure date -->
+        <div class="col">
+          <h6>Departure Date</h6>
+          <input type="text" id="departure-date" class="form-control" />
+        </div>
+
+        <!-- Create input field for arrival date -->
+        <div class="col">
+          <h6>Return Date</h6>
+          <input type="text" id="return-date" class="form-control" />
+        </div>
+      </div>
 
       <!-- Create form submit button -->
       <button id="reservation-submit" class="btn btn-primary float-right">
@@ -43,6 +43,14 @@
 
 <br />
 
+<div class="container">
+  <div id="flight-jumbotron" class="jumbotron">
+    <h2>Result</h2>
+    <div class="row">
+      {{> resultcard}}
+    </div>
+  </div>
+</div>
 <!-- Example Trip Reservations Disp -->
 <div id="reservation">
   <div class="container">
