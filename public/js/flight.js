@@ -55,7 +55,9 @@ function createNewCard(flight, counter) {
   departureTimePar.text("Departure Date : ");
   var departureTimeSpan = $("<span>");
   departureTimeSpan.addClass("departureDate" + counter);
-  departureTimeSpan.text(flight.departure_at);
+  departureTimeSpan.text(
+    moment(flight.departure_at).format("MMMM Do YYYY, h:mm:ss")
+  );
   var pricePar = $("<p>");
   pricePar.addClass("card-text");
   pricePar.text("Price (USD) : ");
