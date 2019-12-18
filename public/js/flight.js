@@ -32,13 +32,13 @@ $("#reservation-submit").on("click", function(e) {
     $("#flight-result-row").empty();
     var flightsToAdd = [];
     for (var i = 0; i < response.searchResult.length; i++) {
-      flightsToAdd.push(createNewCard(response.searchResult[i]));
+      flightsToAdd.push(createNewCard(response.searchResult[i], i));
     }
     $("#flight-result-row").append(flightsToAdd);
   });
 });
 
-function createNewCard(flight) {
+function createNewCard(flight, counter) {
   console.log("creating card");
   var newFlightCol = $("<div>");
   newFlightCol.addClass("col-sm-6");
@@ -48,25 +48,25 @@ function createNewCard(flight) {
   newFlightCardBody.addClass("card-body");
   var airlineTitle = $("<h5>");
   airlineTitle.addClass("card-title");
-  airlineTitle.addClass("airline");
+  airlineTitle.addClass("airline" + counter);
   airlineTitle.text("Airline: " + flight.airline);
   var departureTimePar = $("<p>");
   departureTimePar.addClass("card-text");
   departureTimePar.text("Departure Date : ");
   var departureTimeSpan = $("<span>");
-  departureTimeSpan.addClass("departureDate");
+  departureTimeSpan.addClass("departureDate" + counter);
   departureTimeSpan.text(flight.departure_at);
   var pricePar = $("<p>");
   pricePar.addClass("card-text");
   pricePar.text("Price (USD) : ");
   var priceSpan = $("<span>");
-  priceSpan.addClass("price");
+  priceSpan.addClass("price" + counter);
   priceSpan.text(flight.price);
   var departureCityPar = $("<p>");
   departureCityPar.addClass("card-text");
   departureCityPar.text("Departure Airport : ");
   var departureCitySpan = $("<span>");
-  departureCitySpan.addClass("departureCity");
+  departureCitySpan.addClass("departureCity" + counter);
   departureCitySpan.text(
     $("#departure-airport-input")
       .val()
@@ -76,7 +76,7 @@ function createNewCard(flight) {
   arrivalCityPar.addClass("card-text");
   arrivalCityPar.text("Arrival Airport : ");
   var arrivalCitySpan = $("<span>");
-  arrivalCitySpan.addClass("destination");
+  arrivalCitySpan.addClass("destination" + counter);
   arrivalCitySpan.text(
     $("#destination-airport-input")
       .val()
@@ -86,6 +86,7 @@ function createNewCard(flight) {
   saveBtn.text("Save");
   saveBtn.addClass("btn btn-primary savebtn");
   saveBtn.attr("href", "#");
+  saveBtn.attr("id", "" + counter);
 
   newFlightCol.append(newFlightCard);
   newFlightCard.append(newFlightCardBody);
@@ -100,4 +101,32 @@ function createNewCard(flight) {
   arrivalCityPar.append(arrivalCitySpan);
   newFlightCardBody.append(saveBtn);
   return newFlightCol;
+}
+
+$(document.body).on("click", ".savebtn", function(event) {
+  event.preventDefault();
+  console.log("button clicked");
+  var cardId = $(this).attr("id");
+  console.log(cardId);
+  var $departureCity = $(".departureCity" + cardId);
+  var $arrivalCity = $(".destination" + cardId);
+  var $departureDate = $(".departureDate" + cardId);
+  var $price = $(".price" + cardId);
+  var $airline = $(".airline" + cardId);
+  var newReservation = {
+    startDate: $departureDate.text(),
+    departureLoc: $departureCity.text().toUpperCase(),
+    arrivalLoc: $arrivalCity.text().toUpperCase(),
+    price: parseInt($price.text()),
+    airline: $airline.text().trim()
+  };
+  console.log(newReservation);
+  submitReservation(newReservation);
+});
+
+function submitReservation(Reservation) {
+  $.post("/api/reservations/", Reservation, function() {
+    console.log("Trip Added");
+    alert("Trip Added!");
+  });
 }
