@@ -19,17 +19,26 @@ module.exports = function(app) {
     queryURL += originCity;
     queryURL += "&destination=";
     queryURL += destination;
-    queryURL += "&depart_date=";
-    queryURL += departureDate;
-    queryURL += "&return_date=";
-    queryURL += returnDate;
+    // queryURL += "&depart_date=";
+    // queryURL += departureDate;
+    // queryURL += "&return_date=";
+    // queryURL += returnDate;
     queryURL += "&token=";
     queryURL += token;
     console.log(queryURL);
 
     axios.get(queryURL).then(function(response) {
-      console.log("result: " + JSON.stringify(response.data.data.LAX));
-      res.json(response.data.data.LAX);
+      // console.log("res: " + JSON.stringify(response.data.data));
+      // console.log(
+      //   "result: " +
+      //     Object.values(Object.values(response.data.data)[0])[0].price
+      // );
+      var handle = {
+        searchResult: Object.values(Object.values(response.data.data)[0])
+      };
+      console.log(handle);
+      // res.json({ searchResult: searchResult });
+      res.render("reservations", handle);
     });
   });
 
