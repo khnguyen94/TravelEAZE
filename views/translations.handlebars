@@ -1,33 +1,81 @@
 <div class="container">
   <div class="jumbotron">
-    <h4>Start Learning the Language</h4>
+    <h3>Start Learning the Language</h3>
+    
+    <br>
 
     <div class="row">
       <div class="col">
         <!-- Select first language -->
         <div class="form-group">
+<<<<<<< HEAD
           <label for="firstLanguage"></label>
           <textarea class="form-control" id="sourceLanguage">
           </textarea>
+=======
+          <label for="firstLanguage">Source Language</label>
+          <input class="form-control" id="firstLanguage"></input>
+>>>>>>> master
         </div>
       </div>
 
       <div class="col">
         <!-- Select second language -->
         <div class="form-group">
+<<<<<<< HEAD
           <label for="secondLanguage"></label>
           <textarea class="form-control" id="targetLanguage">
           </textarea>
+=======
+          <label for="secondLanguage">Target Language</label>
+          <label for="firstLanguage"></label>
+          <input class="form-control" id="firstLanguage"></input>
+>>>>>>> master
         </div>
       </div>
     </div>
+
+    <br>
+
+    <!-- Row for common phrases buttons-->
+    <div class="container">
+      <h5>Common Phrases To Know</h5>
+
+      <div class="row">
+        <div class="buttonDiv">
+          <button type="button" class="btn-outline-info">Hello</button>
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" class="btn-outline-info">How are you?</button>
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" class="btn-outline-info">Where is the bathroom?</button>
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" class="btn-outline-info">How much does this cost?</button>
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" class="btn-outline-info">Where is the ATM?</button>
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" class="btn-outline-info">Goodbye</button>
+        </div>
+      </div>
+    </div>
+
+    <br>
 
     <div class="row">
       <!-- Text to be translated -->
       <div class="col-5">
         <div class="form-group">
           <label for="needTranslation"></label>
-          <textarea class="form-control" id="needTranslation" rows="6"></textarea>
+          <textarea class="form-control" id="needTranslationText" rows="6"></textarea>
         </div>
       </div>
 
@@ -41,14 +89,39 @@
       <!-- Translated text -->
       <div class="col-5">
         <div class="form-group">
-          <label for="exampleFormControlTextarea1"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+          <label for="translatedText"></label>
+          <textarea class="form-control" id="translatedText" rows="6"></textarea>
         </div>
       </div>
+
     </div>
   </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Link translation and autocomplete JS Logic File -->
 <script src="js/autocomplete.js"></script>
 <script src="js/translatetext.js"></script>
+=======
+<script>
+  $(".btn-outline-info").on("click", function() {
+    // Get a handle on the phrased text data linked to the button
+    // console.log($(this).text()); 
+    var buttonPhrase = $(this).text();
+
+    console.log(buttonPhrase);
+
+    // Populate the first translation field with the english phrase
+    $("#needTranslationText").text(buttonPhrase);
+
+    // Run the translation API on the phrase, pass in the second language selected and the phrase
+
+
+    // Get a handle on the translated phrase
+    var translatedPhrase;
+
+    // Populate the second translation field with the translated phrase
+    $("#translatedText").text(translatedPhrase);
+  })
+</script>
+>>>>>>> master

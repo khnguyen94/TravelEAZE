@@ -6,7 +6,17 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all reservations
   app.get("/api/reservations", function(req, res) {
-    db.Reservation.findAll({}).then(function(result) {
+    console.log("trying user query");
+    db.Reservation.findAll({}).then(function(dbReservation) {
+      console.log(dbReservation);
+      res.json(dbReservation);
+    });
+  });
+
+  app.get("/api/city/:arrivalCity", function(req, res) {
+    db.Airport.findAll({
+      where: { airportAccronym: req.params.arrivalCity }
+    }).then(function(result) {
       res.json(result);
     });
   });
@@ -21,15 +31,16 @@ module.exports = function(app) {
     console.log(req.body);
     db.Reservation.create({
       startDate: req.body.startDate,
-      endDate: req.body.endDate,
       departureLoc: req.body.departureLoc,
-      arrivalLoc: req.body.arrivalLoc
+      arrivalLoc: req.body.arrivalLoc,
+      price: req.body.price,
+      airline: req.body.airline
     }).then(function(dbReservation) {
       res.json(dbReservation);
     });
   });
 
-  // Delete an reservations by id
+  // Delete a reservation by id
   app.delete("/api/reservations/:id", function(req, res) {
     db.Reservation.destroy({
       where: {
