@@ -4,6 +4,10 @@
 .btn {
   color: white; }
 
+.nav-link {
+  color: white;
+}
+
 #nav-login-disp {
   color: white; }
 
@@ -98,6 +102,16 @@
 
 
 /* Translation Page CSS */
+.buttonDiv {
+  display: inline-block;
+  display: -moz-inline-box;
+  display: inline; 
+  zoom: 1; 
+  width: 33%;
+  text-align: center;
+  padding: 10px;
+}
+
 #submitButtonCol {
   align-content: center;
 }
