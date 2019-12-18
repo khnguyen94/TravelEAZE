@@ -35,7 +35,7 @@ module.exports = function(app) {
     });
   });
 
-  // Delete an reservations by id
+  // Delete a reservation by id
   app.delete("/api/reservations/:id", function(req, res) {
     db.Reservation.destroy({
       where: {
