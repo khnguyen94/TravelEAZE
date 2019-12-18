@@ -1,24 +1,19 @@
 /* eslint-disable no-unused-vars */
 // Get references to page elements
-var $userLoginEmail = $("#login-email-input");
-var $userLoginPassword = $("#login-password-input");
-var $loginSubmit = $("#login-submit");
+var $userLogin = $("#login-email-input");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  userLogin: function(userName) {
     return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      type: "GET",
+      url: "api/user/" + userName
     });
   },
-  getExamples: function() {
+  getReservations: function(userName) {
+    console.log("getting reservations");
     return $.ajax({
-      url: "api/examples",
+      url: "api/" + userName,
       type: "GET"
     });
   },
@@ -82,6 +77,28 @@ var handleFormSubmit = function(event) {
   $exampleDescription.val("");
 };
 
+$("#login-submit").on("click", function handleFormSubmit(event) {
+  event.preventDefault();
+  console.log($userLogin.val());
+  if (!$userLogin.val()) {
+    alert("You must enter a valid user!");
+    return;
+  } else if ($userLogin.val().trim().length > 30) {
+    alert("User name is too long, please shorten!");
+    return;
+  }
+
+  if ($userLogin) {
+    $userId = $userLogin
+      .val()
+      .trim()
+      .toLowerCase();
+  }
+
+  console.log("submit clicked");
+  API.getReservations($userId);
+});
+
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -93,7 +110,3 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);

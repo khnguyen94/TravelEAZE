@@ -17,10 +17,10 @@ $(document).ready(function() {
       return;
     }
     var newReservation = {
-      startDate: $departureDate.val().trim(),
-      endDate: $returnDate.val().trim(),
-      departureLoc: $departureCity.val(),
-      arrivalLoc: $arrivalCity.val()
+      startDate: $departureDate,
+      endDate: $returnDate,
+      departureLoc: $departureCity.val().toUpperCase(),
+      arrivalLoc: $arrivalCity.val().toUpperCase()
     };
     submitReservation(newReservation);
   });
