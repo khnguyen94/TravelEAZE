@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // $("#result-container").hide();
   // Get references to page elements
 
   $(".savebtn").on("click", function(event) {
@@ -33,6 +34,7 @@ $(document).ready(function() {
     });
   }
 
+<<<<<<< HEAD
   var getReservations;
   function getFlights() {
     $.get("/api/reservations", function(data) {
@@ -49,4 +51,22 @@ $(document).ready(function() {
     });
   }
   //getFlights();
+=======
+  // var getReservations;
+  // function getFlights() {
+  //   $.get("/api/reservations", function(data) {
+  //     console.log("Reservation info", data);
+  //     getReservations = data;
+  //     console.log("arrival location: " + data[0].arrivalLoc);
+  //     $.get("/api/city/" + data[0].arrivalLoc, function(res) {
+  //       console.log("result found");
+  //       console.log(res);
+  //       weatherObj.queryCity(res[0].airportCity, function(result) {
+  //         console.log(result);
+  //       });
+  //     });
+  //   });
+  // }
+  // getFlights();
+>>>>>>> master
 });
