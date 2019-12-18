@@ -45,6 +45,11 @@ module.exports = function(app) {
     console.log("page rendered!");
   });
 
+  app.get("/flight", function(req, res) {
+    res.render("reservations");
+    console.log("page rendered!");
+  });
+
   app.get("/translate", function(req, res) {
     res.render("translations");
   });
