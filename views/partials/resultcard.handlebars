@@ -1,14 +1,12 @@
-{{#each searchResult}}
 <div class="col-sm-6">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{airline}}</h5>
-
-      <p class="card-text"><span>{{price}}</span></p>
-      <p class="card-text">Departure Date: <span>{{departure_at}}</span>
+      <h5 class="card-title" class="airline">{{airline}}</h5>
+      <p class="card-text">Departure Date: <span class="departureDate">{{departure_at}}</span>
+      </p>
+      <p class="card-text">Price: <span class="price">{{price}}</span>
       </p>
       <a href="#" class="btn btn-primary savebtn">#savebtn</a>
     </div>
   </div>
 </div>
-{{/each}}

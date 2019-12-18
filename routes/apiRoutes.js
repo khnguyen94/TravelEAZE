@@ -5,23 +5,11 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all reservations
-  app.get("/api/:user", function(req, res) {
+  app.get("/api/reservations", function(req, res) {
     console.log("trying user query");
-    db.User.findAll({
-      where: {
-        userName: req.params.user
-      },
-      include: [db.Reservation]
-    }).then(function(dbReservation) {
-      if (dbReservation.length === 0) {
-        console.log("adding user");
-        db.User.create({ userName: req.params.user }).then(function(dbUser) {
-          res.json({});
-        });
-      } else {
-        console.log(dbReservation[0].dataValues.Reservations);
-        res.json(dbReservation[0].dataValues.Reservations);
-      }
+    db.Reservation.findAll({}).then(function(dbReservation) {
+      console.log(dbReservation);
+      res.json(dbReservation);
     });
   });
 
@@ -38,9 +26,10 @@ module.exports = function(app) {
     console.log(req.body);
     db.Reservation.create({
       startDate: req.body.startDate,
-      endDate: req.body.endDate,
       departureLoc: req.body.departureLoc,
-      arrivalLoc: req.body.arrivalLoc
+      arrivalLoc: req.body.arrivalLoc,
+      price: req.body.price,
+      airline: req.body.airline
     }).then(function(dbReservation) {
       res.json(dbReservation);
     });

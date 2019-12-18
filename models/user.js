@@ -4,13 +4,14 @@ module.exports = function(sequelize, DataTypes) {
     userName: DataTypes.STRING
   });
 
-  // Associating User with Reservations
+  // Future development
+/*  // Associating User with Reservations
   User.associate = function(models) {
     // When an User is deleted, also delete any associated Reservations
     User.hasMany(models.Reservation, {
       onDelete: "cascade"
     });
   };
-
+*/
   return User;
 };
