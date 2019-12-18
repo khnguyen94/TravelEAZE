@@ -2,7 +2,7 @@
 // Get references to page elements
 var $userLogin = $("#login-email-input");
 
-function getPosts() {
+function getReservations() {
   $.get("/api/reservations", function(data) {
     console.log("Reservations", data);
     Reservations = data;
@@ -14,7 +14,7 @@ function getPosts() {
     $("#reservation-result-row").append(reservationsToAdd);
   });
 }
-getPosts();
+getReservations();
 
 function createNewCard(flight) {
   console.log("creating card");
@@ -52,6 +52,11 @@ function createNewCard(flight) {
   var arrivalCitySpan = $("<span>");
   arrivalCitySpan.addClass("destination");
   arrivalCitySpan.text(flight.arrivalLoc);
+  var deleteBtn = $("<button>");
+  deleteBtn.text("Delete");
+  deleteBtn.addClass("btn btn-danger deletebtn");
+  deleteBtn.attr("href", "#");
+  deleteBtn.attr("id", flight.id);
 
   newFlightCol.append(newFlightCard);
   newFlightCard.append(newFlightCardBody);
@@ -64,6 +69,7 @@ function createNewCard(flight) {
   departureCityPar.append(departureCitySpan);
   newFlightCardBody.append(arrivalCityPar);
   arrivalCityPar.append(arrivalCitySpan);
+  newFlightCardBody.append(deleteBtn);
   return newFlightCol;
 }
 
@@ -94,3 +100,17 @@ $("#login-submit").on("click", function handleFormSubmit(event) {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 
+// This function does an API call to delete posts
+function deletePost(id) {
+  $.ajax({
+    method: "DELETE",
+    url: "/api/reservations/" + id
+  }).then(function() {
+    location.reload();
+  });
+}
+
+$(document.body).on("click", ".deletebtn", function(event) {
+  var reservationID = $(this).attr("id");
+  deletePost(reservationID);
+});
