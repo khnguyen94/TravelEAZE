@@ -5,7 +5,7 @@ $("#reservation-submit").on("click", function(e) {
     originCity: $("#departure-airport-input").val().trim(),
     destination: $("#destination-airport-input").val().trim(),
     departDate: $("#departure-date").val().trim(),
-    returnDate: $("return-date").val().trim()
+    returnDate: $("#return-date").val().trim()
   };
 
   $.ajax("/flight", {
