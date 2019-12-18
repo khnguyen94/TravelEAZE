@@ -2,12 +2,14 @@
 module.exports = function(sequelize, DataTypes) {
   var Reservation = sequelize.define("Reservation", {
     startDate: DataTypes.DATEONLY,
-    endDate: DataTypes.DATEONLY,
     departureLoc: DataTypes.STRING,
-    arrivalLoc: DataTypes.STRING
+    arrivalLoc: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+    airline: DataTypes.STRING
   });
 
-  Reservation.associate = function(models) {
+  //future development code
+/*  Reservation.associate = function(models) {
     // We're saying that a Reservation should belong to a User
     // A Reservation can't be created without a User due to the foreign key constraint
     Reservation.belongsTo(models.User, {
@@ -16,6 +18,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-
+*/
   return Reservation;
 };

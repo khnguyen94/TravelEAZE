@@ -2,81 +2,73 @@
 // Get references to page elements
 var $userLogin = $("#login-email-input");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  userLogin: function(userName) {
-    return $.ajax({
-      type: "GET",
-      url: "api/user/" + userName
-    });
-  },
-  getReservations: function(userName) {
-    console.log("getting reservations");
-    return $.ajax({
-      url: "api/" + userName,
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
+function getPosts() {
+  $.get("/api/reservations", function(data) {
+    console.log("Reservations", data);
+    Reservations = data;
+    $("#reservation-result-row").empty();
+    var reservationsToAdd = [];
+    for (var i = 0; i < Reservations.length; i++) {
+      reservationsToAdd.push(createNewCard(Reservations[i]));
+    }
+    $("#reservation-result-row").append(reservationsToAdd);
   });
-};
+}
+getPosts();
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
+function createNewCard(flight) {
+  console.log("creating card");
+  var newFlightCol = $("<div>");
+  newFlightCol.addClass("col-sm-6");
+  var newFlightCard = $("<div>");
+  newFlightCard.addClass("card");
+  var newFlightCardBody = $("<div>");
+  newFlightCardBody.addClass("card-body");
+  var airlineTitle = $("<h5>");
+  airlineTitle.addClass("card-title");
+  airlineTitle.addClass("airline");
+  airlineTitle.text(flight.airline);
+  var departureTimePar = $("<p>");
+  departureTimePar.addClass("card-text");
+  departureTimePar.text("Departure Date : ");
+  var departureTimeSpan = $("<span>");
+  departureTimeSpan.addClass("departureDate");
+  departureTimeSpan.text(flight.startDate);
+  var pricePar = $("<p>");
+  pricePar.addClass("card-text");
+  pricePar.text("Price (USD) : ");
+  var priceSpan = $("<span>");
+  priceSpan.addClass("price");
+  priceSpan.text(flight.price);
+  var departureCityPar = $("<p>");
+  departureCityPar.addClass("card-text");
+  departureCityPar.text("Departure Airport : ");
+  var departureCitySpan = $("<span>");
+  departureCitySpan.addClass("departureCity");
+  departureCitySpan.text(flight.departureLoc);
+  var arrivalCityPar = $("<p>");
+  arrivalCityPar.addClass("card-text");
+  arrivalCityPar.text("Arrival Airport : ");
+  var arrivalCitySpan = $("<span>");
+  arrivalCitySpan.addClass("destination");
+  arrivalCitySpan.text(flight.arrivalLoc);
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+  newFlightCol.append(newFlightCard);
+  newFlightCard.append(newFlightCardBody);
+  newFlightCardBody.append(airlineTitle);
+  newFlightCardBody.append(departureTimePar);
+  departureTimePar.append(departureTimeSpan);
+  newFlightCardBody.append(pricePar);
+  pricePar.append(priceSpan);
+  newFlightCardBody.append(departureCityPar);
+  departureCityPar.append(departureCitySpan);
+  newFlightCardBody.append(arrivalCityPar);
+  arrivalCityPar.append(arrivalCitySpan);
+  return newFlightCol;
+}
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
+//Future development code
+/*
 $("#login-submit").on("click", function handleFormSubmit(event) {
   event.preventDefault();
   console.log($userLogin.val());
@@ -98,15 +90,7 @@ $("#login-submit").on("click", function handleFormSubmit(event) {
   console.log("submit clicked");
   API.getReservations($userId);
 });
-
+*/
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
