@@ -11,13 +11,15 @@ module.exports = function(app) {
     });
   });
 
-  app.get("api/translations", function(req,res){
+  app.get("api/translations", function(req, res) {
     db.Languages.findOne({
-      where:{
+      where: {
         LanguageCode: req.params.targetLanguage
       }
-    })
-  })
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
   // Create a new reservations
   app.post("/api/reservations", function(req, res) {
     console.log(req.body);
