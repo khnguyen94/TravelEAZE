@@ -27,18 +27,20 @@ module.exports = function(app) {
     queryURL += token;
     console.log(queryURL);
 
+    var handle;
+
     axios.get(queryURL).then(function(response) {
       // console.log("res: " + JSON.stringify(response.data.data));
       // console.log(
       //   "result: " +
       //     Object.values(Object.values(response.data.data)[0])[0].price
       // );
-      var handle = {
+      handle = {
         searchResult: Object.values(Object.values(response.data.data)[0])
       };
       console.log(handle);
+      res.send(handle);
       // res.json({ searchResult: searchResult });
-      res.render("reservations", handle);
     });
   });
 
