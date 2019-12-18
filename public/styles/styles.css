@@ -1,8 +1,17 @@
+body, h2, h3, h5 {
+  font-family: 'Titillium Web', sans-serif;
+}
+.jumbotron {
+  background-color: #a1d1a1;
+}
 #nav-links {
-  text-align: center; }
+  text-align: center; 
+}
 
-.btn {
-  color: white; }
+.savebtn {
+  color: white; 
+  background-color: cadetblue;
+}
 
 .nav-link {
   color: white;
