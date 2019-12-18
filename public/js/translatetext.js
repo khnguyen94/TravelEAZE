@@ -18,4 +18,7 @@ $(document).ready(function() {
       );
     });
   });
+  $("#sourceLanguage").on("input", autocomplete);
+  $("#targetLanguage").on("input", autocomplete);
 });
+getlanguage();

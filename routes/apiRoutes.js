@@ -11,13 +11,9 @@ module.exports = function(app) {
     });
   });
 
-  app.get("api/translations", function(req, res) {
-    db.Languages.findOne({
-      where: {
-        LanguageCode: req.params.targetLanguage
-      }
-    }).then(function(result) {
-      res.json(result);
+  app.get("api/translate", function(req, res) {
+    db.Languages.findAll({}).then(function(result) {
+      res.JSON.stringify(result);
     });
   });
   // Create a new reservations

@@ -40,27 +40,27 @@ module.exports = function(app) {
     var targetlang = req.body.targetlang;
 
     axios({
-      "method": "POST",
-      "url": "https://google-translate1.p.rapidapi.com/language/translate/v2",
-      "headers": {
+      method: "POST",
+      url: "https://google-translate1.p.rapidapi.com/language/translate/v2",
+      headers: {
         "content-type": "application/x-www-form-urlencoded",
         "x-rapidapi-host": "google-translate1.p.rapidapi.com",
         "x-rapidapi-key": apiKey
-      }, "data": {
+      }, data: {
         "source": sourcelang,
         "q": transtext,
         "target": targetlang
       }
     })
       .then((response) => {
-        console.log(response)
-        res.json(response)
+        console.log(response.data)
+        res.json(response.data)
       })
       .catch((error) => {
         console.log(error)
       })
     });
-  
+
   // Load index page
   // module.exports = function(app) {
   app.get("/", function(req, res) {

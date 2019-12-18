@@ -1,13 +1,12 @@
 var langarray = [];
 
-//call pokemon api to push all names to langarray array
 function getlanguage() {
   $.ajax({
     url: "api/translate",
     method: "GET"
   }).then(function(response) {
     for (var i = 0; i < response.results.length; i++) {
-      langarray.push(response.results[i].name);
+      langarray.push(response.results[i].LanguageCode);
     }
     for (var i = 0; i < response.results.length; i++) {
       langarray.push(i.toString());
