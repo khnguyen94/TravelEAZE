@@ -13,13 +13,13 @@ module.exports = function(app) {
       },
       include: [db.Reservation]
     }).then(function(dbReservation) {
-      console.log(dbReservation[0].dataValues.Reservations);
       if (dbReservation.length === 0) {
         console.log("adding user");
         db.User.create({ userName: req.params.user }).then(function(dbUser) {
           res.json({});
         });
       } else {
+        console.log(dbReservation[0].dataValues.Reservations);
         res.json(dbReservation[0].dataValues.Reservations);
       }
     });

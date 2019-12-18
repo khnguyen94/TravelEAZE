@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "a-6Intruder",
-=======
-    "password": "frankocean",
->>>>>>> master
+    "password": null,
     "database": "travel_db",
     "host": "localhost",
     "dialect": "mysql"
