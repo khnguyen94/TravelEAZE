@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 var db = require("../models");
 var axios = require("axios");
-var airplane = require("../config/airplane.js");
-var token = airplane.token1;
-var keys = require("../config/keys.js");
-var apiKey = keys.googlekey;
+require("dotenv").config();
+var token = process.env.token;
+var apiKey = process.env.googlekey;
 
 module.exports = function(app) {
   app.post("/flight", function(req, res) {
