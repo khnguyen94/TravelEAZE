@@ -9,7 +9,7 @@
         <!-- Select first language -->
         <div class="form-group">
           <label for="firstLanguage">Source Language</label>
-          <input class="form-control" id="firstLanguage"></input>
+          <input class="form-control" id="sourceLanguage"></input>
         </div>
       </div>
 
@@ -18,7 +18,7 @@
         <div class="form-group">
           <label for="secondLanguage">Target Language</label>
           <label for="firstLanguage"></label>
-          <input class="form-control" id="firstLanguage"></input>
+          <input class="form-control" id="targetLanguage"></input>
         </div>
       </div>
     </div>
@@ -86,6 +86,9 @@
   </div>
 </div>
 
+<!-- Link translation and autocomplete JS Logic File -->
+<script src="js/autocomplete.js"></script>
+<script src="js/translatetext.js"></script>
 <script>
   $(".btn-outline-info").on("click", function() {
     // Get a handle on the phrased text data linked to the button
