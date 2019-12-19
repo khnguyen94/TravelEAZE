@@ -8,8 +8,18 @@ module.exports = function(app) {
   app.get("/api/reservations", function(req, res) {
     console.log("trying user query");
     db.Reservation.findAll({}).then(function(dbReservation) {
-      console.log(dbReservation);
-      res.json(dbReservation);
+      // Create a variable to hold all burgers
+      var allReservations = {};
+
+      // Assign the data returned from the selectAll function to a key burgers, place into the allBurgers object
+      allReservations = {
+        reservations: dbReservation
+      };
+
+      console.log(allReservations);
+
+      // Render the allBurgers object using the index.handlebars template
+      res.render("reservations", allReservations);
     });
   });
 
