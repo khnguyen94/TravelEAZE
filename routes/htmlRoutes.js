@@ -3,7 +3,7 @@ var db = require("../models");
 var axios = require("axios");
 var airplane = require("../config/airplane.js");
 var token = airplane.token1;
-var keys = require("../config/keys.js");
+var keys = require("../.env");
 var apiKey = keys.googlekey;
 
 module.exports = function(app) {
