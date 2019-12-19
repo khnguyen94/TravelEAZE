@@ -19,17 +19,28 @@ module.exports = function(app) {
     queryURL += originCity;
     queryURL += "&destination=";
     queryURL += destination;
-    queryURL += "&depart_date=";
-    queryURL += departureDate;
-    queryURL += "&return_date=";
-    queryURL += returnDate;
+    // queryURL += "&depart_date=";
+    // queryURL += departureDate;
+    // queryURL += "&return_date=";
+    // queryURL += returnDate;
     queryURL += "&token=";
     queryURL += token;
     console.log(queryURL);
 
+    var handle;
+
     axios.get(queryURL).then(function(response) {
-      console.log("result: " + JSON.stringify(response.data.data.LAX));
-      res.json(response.data.data.LAX);
+      // console.log("res: " + JSON.stringify(response.data.data));
+      // console.log(
+      //   "result: " +
+      //     Object.values(Object.values(response.data.data)[0])[0].price
+      // );
+      handle = {
+        searchResult: Object.values(Object.values(response.data.data)[0])
+      };
+      console.log(handle);
+      res.send(handle);
+      // res.json({ searchResult: searchResult });
     });
   });
 
@@ -40,6 +51,11 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
+  app.get("/flight", function(req, res) {
+    res.render("reservations");
+    console.log("page rendered!");
+  });
+
   app.get("/flight", function(req, res) {
     res.render("reservations");
     console.log("page rendered!");
