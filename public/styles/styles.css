@@ -1,9 +1,15 @@
 body, h2, h3, h5 {
   font-family: 'Titillium Web', sans-serif;
 }
-.jumbotron {
-  background-color: #a1d1a1;
+.navbar {
+  background-color: #506950;
+
 }
+
+.jumbotron {
+  background-color: #8ab48a;
+}
+
 #nav-links {
   text-align: center; 
 }
