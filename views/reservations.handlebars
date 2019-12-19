@@ -67,27 +67,6 @@
 
 
 
-          <div id="new-burger-disp">
-            <ul id="new-burger-list">
-              {{#each burgers}}
-              {{#unless devoured}}
-
-              <li class="new-burger">
-                <div class="card" style="width:400px">
-                  <img class="card-img-top" src="" alt="{{name}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{name}}</h4>
-                    <button class="change-devoured" data-id="{{id}}" data-newdevour="{{devour}}">DEVOUR!</button>
-
-                    <button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
-                  </div>
-                </div>
-              </li>
-
-              {{/unless}}
-              {{/each}}
-            </ul>
-          </div>
 
           <div id="new-reservations-disp">
             <ul id="new-reservations-list">
