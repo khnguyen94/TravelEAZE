@@ -1,11 +1,8 @@
 $(document).ready(function() {
-  $("#submitTranslationButton").on("click", function(e) {
-    e.preventDefault();
+  $("#submitTranslationButton").on("click", function() {
     var newTrans = {
       sourcelang: $("#sourceLanguage").val(),
-      transtext: $("#needTranslation")
-        .val()
-        .trim(),
+      transtext: $("#needTranslation").val(),
       targetlang: $("#targetLanguage").val()
     };
 

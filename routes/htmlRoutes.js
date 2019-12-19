@@ -50,15 +50,15 @@ module.exports = function(app) {
     var sourcelang = req.body.sourcelang;
     var transtext = req.body.transtext;
     var targetlang = req.body.targetlang;
-
+    
     axios({
-      method: "POST",
-      url: "https://google-translate1.p.rapidapi.com/language/translate/v2",
-      headers: {
+      "method": "POST",
+      "url": "https://google-translate1.p.rapidapi.com/language/translate/v2",
+      "headers": {
         "content-type": "application/x-www-form-urlencoded",
         "x-rapidapi-host": "google-translate1.p.rapidapi.com",
         "x-rapidapi-key": apiKey
-      }, data: {
+      }, "data": {
         "source": sourcelang,
         "q": transtext,
         "target": targetlang

@@ -22,9 +22,11 @@ module.exports = function(app) {
   });
 
   app.get("api/translate", function(req, res) {
-    db.Languages.findAll({}).then(function(result) {
-      res.JSON.stringify(result);
-    });
+    db.Languages.findAll({ attribute: LanguageCode }).then(
+      function(result) {
+        res.json(result);
+      }
+    );
   });
   // Create a new reservations
   app.post("/api/reservations", function(req, res) {
