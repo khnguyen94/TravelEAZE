@@ -33,6 +33,8 @@
         </div>
       </div>
 
+      <br>
+
       <!-- Create form submit button -->
       <button id="reservation-submit" class="btn btn-primary float-right">
         Submit
@@ -45,12 +47,13 @@
 
 <div class="container" id="result-container">
   <div id="flight-jumbotron" class="jumbotron">
-    <h2>Result</h2>
+    <h2>Results</h2>
     <div class="row" id="flight-result-row">
 
     </div>
   </div>
 </div>
+
 <!-- Example Trip Reservations Disp -->
 <div id="reservation">
   <div class="container">
@@ -61,6 +64,35 @@
           <h3>Recent Bookings</h3>
 
           <br>
+
+
+
+
+          <div id="new-reservations-disp">
+            <ul id="new-reservations-list">
+              {{#each reservations}}
+
+              <li class="new-reservation">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title" class="airline">{{airline}}</h5>
+                      <p class="card-text">Departure Date: <span class="departureDate">{{departure_at}}</span>
+                      </p>
+                      <p class="card-text">Price: <span class="price">{{price}}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            {{/each}}
+            </ul>
+
+
+          </div>
+
+
 
           <!-- Slideshow container -->
           <div class="slideshow-container">
@@ -106,4 +138,3 @@
 <script src="js/weatherObj.js"></script>
 <script src="js/reservations.js"></script>
 <script src="/js/flight.js"></script>
-
