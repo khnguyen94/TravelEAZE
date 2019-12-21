@@ -4,4 +4,6 @@ config.json
 .vscode
 node_modules/
 airplane.js
+.env
+keys.js
 dotenv

@@ -1,30 +1,21 @@
-var keys = require("./keys.js");
-var apiKey = keys.rapidapi;
-var sourcelang = $("source").val();
-var transtext = $("text").val();
-var targetlang = $("lang").val();
+$(document).ready(function() {
+  $("#submitTranslationButton").on("click", function() {
+    var newTrans = {
+      sourcelang: $("#sourceLanguage").val(),
+      transtext: $("#needTranslation").val(),
+      targetlang: $("#targetLanguage").val()
+    };
 
-var transfunc = function() {
-  var translateapi = {
-    async: true,
-    crossDomain: true,
-    url: "https://google-translate1.p.rapidapi.com/language/translate/v2",
-    method: "POST",
-    headers: {
-      "x-rapidapi-host": "google-translate1.p.rapidapi.com",
-      "x-rapidapi-key": apiKey,
-      "content-type": "application/x-www-form-urlencoded"
-    },
-    data: {
-      source: sourcelang,
-      q: transtext,
-      target: targetlang
-    }
-  };
-
-  $.ajax(translateapi).done(function(response) {
-    console.log(response);
-    return response;
+    $.ajax("/translate", {
+      type: "POST",
+      data: newTrans
+    }).then(function() {
+      console.log(
+        "Source Language, target language: " + sourcelang + "," + targetlang
+      );
+    });
   });
-};
-transfunc();
+  $("#sourceLanguage").on("input", autocomplete);
+  $("#targetLanguage").on("input", autocomplete);
+});
+getlanguage();
