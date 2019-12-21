@@ -5,7 +5,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all reservations
-  app.get("/api/reservations", function(req, res) {
+  /*  app.get("/api/reservations", function(req, res) {
     console.log("trying user query");
     db.Reservation.findAll({}).then(function(dbReservation) {
       // Create a variable to hold all burgers
@@ -16,10 +16,17 @@ module.exports = function(app) {
         reservations: dbReservation
       };
 
-      console.log(allReservations);
+      console.log(allReservations.reservations);
 
       // Render the allBurgers object using the index.handlebars template
       res.render("reservations", allReservations);
+    });
+  });*/
+  app.get("/api/reservations", function(req, res) {
+    console.log("trying user query");
+    db.Reservation.findAll({}).then(function(dbReservation) {
+      console.log(dbReservation);
+      res.json(dbReservation);
     });
   });
 
@@ -32,11 +39,9 @@ module.exports = function(app) {
   });
 
   app.get("api/translate", function(req, res) {
-    db.Languages.findAll({ attribute: LanguageCode }).then(
-      function(result) {
-        res.json(result);
-      }
-    );
+    db.Languages.findAll({ attribute: LanguageCode }).then(function(result) {
+      res.json(result);
+    });
   });
   // Create a new reservations
   app.post("/api/reservations", function(req, res) {
