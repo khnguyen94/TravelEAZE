@@ -1,4 +1,8 @@
-# project_2 [![Build Status](https://travis-ci.com/khnguyen94/project_2.svg?branch=master)](https://travis-ci.com/khnguyen94/project_2)
+# TRAVELEAZE [![Build Status]
+
+Live: https://project2kkca.herokuapp.com/
+
+(https://travis-ci.com/khnguyen94/project_2.svg?branch=master)](https://travis-ci.com/khnguyen94/project_2)
 
 
 ## Travel App
